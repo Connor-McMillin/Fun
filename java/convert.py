@@ -30,18 +30,21 @@ def toUnicode(fileName):
 def toAscii(fileName):
     fin = open(fileName, "r")
     converted = ''
-    
+   
     for line in fin:
-        hexChar = (character)[2:]
-        converted += "\u" + "0"*(4-len(escapeChar)) + escapeChar
+        i = 0
+
+        while i < len(line):
+            unicodeChar = (line)[i:i+6]
+            hexChar = unicodeChar[2:]
+            converted += chr(int(hexChar, 16))
+            i = i + 6
 
     fin.close()
 
     fout = open(fileName, "w")
     fout.write(converted)
     fout.close()
-
-  
 
 if __name__ == '__main__':
     if(len(argv) != 3):
