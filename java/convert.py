@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+#   Last year I learned that Java accepts unicode characters in code and as a result any Java program
+#   can be written solely in escaped unicode characters. This python script can take Java source code
+#   and convert it into escaped unicode characters or vice versa. Both programs will compile and run
+#   the exact same, just one isn't human readable.
+
 import os
 import sys
 import argparse
