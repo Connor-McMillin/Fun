@@ -7,14 +7,19 @@ import argparse
 from sys import argv
 
 def main(fileName, conversion):
-    file = open(fileName, "r")
+    fin = open(fileName, "r")
     converted = ''
     
-    for line in file:
+    for line in fin:
         for character in line:
             converted += unicode(character)
 
+    fin.close()
     print converted
+
+    fout = open(fileName, "w")
+    fout.write(converted)
+    fout.close()
 
 if __name__ == '__main__':
     if(len(argv) != 3):
