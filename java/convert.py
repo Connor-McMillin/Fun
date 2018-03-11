@@ -7,19 +7,41 @@ import argparse
 from sys import argv
 
 def main(fileName, conversion):
+    if conversion == "1":
+        toUnicode(fileName)
+    else:
+        toAscii(fileName)
+
+def toUnicode(fileName):
     fin = open(fileName, "r")
     converted = ''
     
     for line in fin:
         for character in line:
-            converted += unicode(character)
+            escapeChar = str(hex(ord(character))[2:])
+            converted += "\u" + "0"*(4-len(escapeChar)) + escapeChar
 
     fin.close()
-    print converted
 
     fout = open(fileName, "w")
     fout.write(converted)
     fout.close()
+
+def toAscii(fileName):
+    fin = open(fileName, "r")
+    converted = ''
+    
+    for line in fin:
+        hexChar = (character)[2:]
+        converted += "\u" + "0"*(4-len(escapeChar)) + escapeChar
+
+    fin.close()
+
+    fout = open(fileName, "w")
+    fout.write(converted)
+    fout.close()
+
+  
 
 if __name__ == '__main__':
     if(len(argv) != 3):
