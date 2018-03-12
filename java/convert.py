@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 #   Last year I learned that Java accepts unicode characters in code and as a result any Java program
 #   can be written solely in escaped unicode characters. This python script can take Java source code
